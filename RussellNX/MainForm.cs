@@ -38,6 +38,7 @@ namespace RussellNX
             IconPicBox.Image = __icon;
 
             //Check for 2.2.3.344 Runtime
+            //other runtimes maybe later idk...
             if (!File.Exists(RuntimePath + "\\bin\\GMAssetCompiler.exe"))
             {
                 MessageBox.Show("ERROR!\nGMS2 Runtime 2.2.3.344 is not installed!\nPlease Open GMS2 then go to File->Preferences->Runtime Feeds->Master\nAnd download 2.2.3.344 runtime, then restart this tool.", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -175,8 +176,8 @@ namespace RussellNX
 
         private void BuildButton_Click(object sender, EventArgs e)
         {
-            // oh no
 
+            //Idiot checks.
             if (!File.Exists(ProjectPathBox.Text))
             {
                 MessageBox.Show("Project file does not exist!\nPlease select a valid project file.", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -187,11 +188,18 @@ namespace RussellNX
                 MessageBox.Show("Icon does not exist!\nPlease select your icon again.", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (!File.Exists(KeysBox.Text))
+            {
+                MessageBox.Show("keys.txt does not exist!\nPlease select your keys.txt file again.", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //Let the build begin >:)
             prnt("$LOG_CLEAN"); //clean LogBox
 
             prnt("BUILD BEGIN:");
 
-            //Build the .NSP!
+            //Make control.xml for control.nacp!
             prnt("Making control.xml");
             string TempNewStr = TemplateVar.GlobalTemplateXMLString.Replace("INSERT_TITLE_OF_APP_HERE", GameNameBox.Text);
             TempNewStr = TempNewStr.Replace("INSERT_DEVELOPER_OF_THE_APP_HERE", AuthorBox.Text);

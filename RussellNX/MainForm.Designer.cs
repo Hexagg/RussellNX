@@ -227,7 +227,7 @@
             this.RNXVersionLabel.Name = "RNXVersionLabel";
             this.RNXVersionLabel.Size = new System.Drawing.Size(122, 13);
             this.RNXVersionLabel.TabIndex = 20;
-            this.RNXVersionLabel.Text = "RusselNX Version: 0.9.5";
+            this.RNXVersionLabel.Text = "RusselNX Version: 0.9.8";
             // 
             // LogBox
             // 
