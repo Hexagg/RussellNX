@@ -17,7 +17,7 @@ namespace RussellNX
 {
     public partial class MainForm : Form
     {
-        public static string RuntimePath = Environment.ExpandEnvironmentVariables("%PROGRAMDATA%") + "\\GameMakerStudio2\\Cache\\runtimes\\runtime-2.2.3.344";
+        public static string RuntimePath = Environment.ExpandEnvironmentVariables("%PROGRAMDATA%") + "\\GameMakerStudio2\\Cache\\runtimes\\runtime-2.2.3.344"; // Runtime is hard coded for now... waiting for SDK updates or smth.
         public static string FriendlyYYPName = "";
         public static string GameIconPath = Application.StartupPath + "\\default_icon.jpg";
         public static int BuildState = 0;
@@ -162,7 +162,7 @@ namespace RussellNX
 
             //Special command that cleans the LogBox.
             if (log == "$LOG_CLEAN") { LogBox.Text = ""; StringsCount = 0; }
-
+            else
             LogBox.Text += log + "\n"; //Append text
 
             //Scroll to the end.
