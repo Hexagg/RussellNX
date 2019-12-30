@@ -63,19 +63,9 @@ namespace RussellNX.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap NintendoSDK_Application {
+        internal static System.Drawing.Bitmap default_icon {
             get {
-                object obj = ResourceManager.GetObject("NintendoSDK_Application", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap NintendoSDK_Application1 {
-            get {
-                object obj = ResourceManager.GetObject("NintendoSDK_Application1", resourceCulture);
+                object obj = ResourceManager.GetObject("default_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

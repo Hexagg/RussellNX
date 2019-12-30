@@ -38,42 +38,6 @@ namespace RussellNX
     <VideoCapture>Enable</VideoCapture>
     <PresenceGroupId>INSERT_TITLEID_OF_THE_APP_HERE</PresenceGroupId>
     <DisplayVersion>INSERT_VERSION_STRING_HERE</DisplayVersion>
-    <Rating>
-        <Organization>CERO</Organization>
-        <Age>12</Age>
-    </Rating>
-    <Rating>
-        <Organization>ESRB</Organization>
-        <Age>10</Age>
-    </Rating>
-    <Rating>
-        <Organization>USK</Organization>
-        <Age>12</Age>
-    </Rating>
-    <Rating>
-        <Organization>PEGI</Organization>
-        <Age>12</Age>
-    </Rating>
-    <Rating>
-        <Organization>PEGIPortugal</Organization>
-        <Age>12</Age>
-    </Rating>
-    <Rating>
-        <Organization>PEGIBBFC</Organization>
-        <Age>12</Age>
-    </Rating>
-    <Rating>
-        <Organization>Russian</Organization>
-        <Age>12</Age>
-    </Rating>
-    <Rating>
-        <Organization>ACB</Organization>
-        <Age>13</Age>
-    </Rating>
-    <Rating>
-        <Organization>OFLC</Organization>
-        <Age>13</Age>
-    </Rating>
     <DataLossConfirmation>Required</DataLossConfirmation>
     <PlayLogPolicy>All</PlayLogPolicy>
     <SaveDataOwnerId>INSERT_TITLEID_OF_THE_APP_HERE</SaveDataOwnerId>
@@ -87,7 +51,7 @@ namespace RussellNX
     <LogoType>Nintendo</LogoType>
     <LocalCommunicationId>INSERT_TITLEID_OF_THE_APP_HERE</LocalCommunicationId>
     <LogoHandling>Auto</LogoHandling>
-    <SeedForPseudoDeviceId>0x0000000000000000</SeedForPseudoDeviceId>
+    <SeedForPseudoDeviceId>INSERT_TITLEID_OF_THE_APP_HERE</SeedForPseudoDeviceId>
     <BcatPassphrase/>
     <AddOnContentRegistrationType>AllOnLaunch</AddOnContentRegistrationType>
     <UserAccountSaveDataSizeMax>0x0000000000000000</UserAccountSaveDataSizeMax>

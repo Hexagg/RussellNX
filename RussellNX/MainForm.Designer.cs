@@ -89,7 +89,7 @@
             this.TitleIDBox.Name = "TitleIDBox";
             this.TitleIDBox.Size = new System.Drawing.Size(428, 20);
             this.TitleIDBox.TabIndex = 3;
-            this.TitleIDBox.Text = "0100F00DBABE0050";
+            this.TitleIDBox.Text = "0100F00DBABE0020";
             // 
             // GameNameLabel
             // 
@@ -108,7 +108,7 @@
             this.GameNameBox.Name = "GameNameBox";
             this.GameNameBox.Size = new System.Drawing.Size(428, 20);
             this.GameNameBox.TabIndex = 5;
-            this.GameNameBox.Text = "Russel Kay\'s Great Adventure in DMCAing Silica tools.";
+            this.GameNameBox.Text = "RussellNX Application";
             // 
             // AuthorLabel
             // 
@@ -127,7 +127,7 @@
             this.AuthorBox.Name = "AuthorBox";
             this.AuthorBox.Size = new System.Drawing.Size(428, 20);
             this.AuthorBox.TabIndex = 7;
-            this.AuthorBox.Text = "NotYY Ltd.";
+            this.AuthorBox.Text = "nkrapivindev";
             // 
             // VersionLabel
             // 
@@ -147,7 +147,7 @@
             this.VersionBox.Name = "VersionBox";
             this.VersionBox.Size = new System.Drawing.Size(428, 20);
             this.VersionBox.TabIndex = 10;
-            this.VersionBox.Text = "228";
+            this.VersionBox.Text = "100";
             // 
             // IconLabel
             // 
@@ -227,7 +227,7 @@
             this.RNXVersionLabel.Name = "RNXVersionLabel";
             this.RNXVersionLabel.Size = new System.Drawing.Size(122, 13);
             this.RNXVersionLabel.TabIndex = 20;
-            this.RNXVersionLabel.Text = "RusselNX Version: 0.9.9";
+            this.RNXVersionLabel.Text = "RusselNX Version: 1.0.0";
             // 
             // LogBox
             // 
@@ -250,8 +250,8 @@
             // 
             // IconPicBox
             // 
-            this.IconPicBox.Image = global::RussellNX.Properties.Resources.NintendoSDK_Application1;
-            this.IconPicBox.InitialImage = global::RussellNX.Properties.Resources.NintendoSDK_Application1;
+            this.IconPicBox.Image = global::RussellNX.Properties.Resources.default_icon;
+            this.IconPicBox.InitialImage = global::RussellNX.Properties.Resources.default_icon;
             this.IconPicBox.Location = new System.Drawing.Point(12, 76);
             this.IconPicBox.Name = "IconPicBox";
             this.IconPicBox.Size = new System.Drawing.Size(256, 256);
