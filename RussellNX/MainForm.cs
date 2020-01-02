@@ -364,6 +364,7 @@ namespace RussellNX
             data.Sections.GetSectionData("Main").Comments.Add("This is a RussellNX configuration file, edit with caution.");
             parser.WriteFile(fname, data);
             prnt("Default RussellNX.ini was made.");
+            Focus(); //Focus MainForm
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
