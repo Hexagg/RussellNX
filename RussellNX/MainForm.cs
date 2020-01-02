@@ -11,6 +11,9 @@ using System.Windows.Forms;
 using System.IO;
 using System.Xml;
 using System.Diagnostics;
+using IniParser;
+using IniParser.Model;
+using IniParser.Parser;
 //using System.Text.Json;
 
 namespace RussellNX
@@ -20,12 +23,22 @@ namespace RussellNX
         public static string RuntimePath = Environment.ExpandEnvironmentVariables("%PROGRAMDATA%") + "\\GameMakerStudio2\\Cache\\runtimes\\runtime-2.2.3.344"; // Runtime is hard coded for now... waiting for SDK updates or smth.
         public static string FriendlyYYPName = "";
         public static string GameIconPath = Application.StartupPath + "\\default_icon.jpg";
+        public static string RNXVersionString = "1.0.1";
         public static int BuildState = 0;
         public static int StringsCount = 0;
 
         public MainForm()
         {
             InitializeComponent();
+
+            if (!File.Exists(Application.StartupPath + "\\RussellNX.ini"))
+            {
+                DefaultSettings();
+            }
+            else LoadSettings();
+
+            //Set version label
+            RNXVersionLabel.Text = "RussellNX Version: " + RNXVersionString;
 
             if (!File.Exists(GameIconPath))
             {
@@ -56,7 +69,7 @@ namespace RussellNX
             }
 
             //Check for keys.txt here
-            if (!File.Exists(Application.StartupPath + "\\KeysFilePath"))
+            if (!File.Exists(KeysBox.Text))
             {
                 MessageBox.Show("Please specify your keys.txt file after clicking OK", "No keys.txt specified!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 OpenFileDialog KeysChooseDialog = new OpenFileDialog();
@@ -64,16 +77,8 @@ namespace RussellNX
 
                 if (KeysChooseDialog.ShowDialog() == DialogResult.OK)
                 {
-                    File.Delete(Application.StartupPath+"\\KeysFilePath");
-                    File.WriteAllText(Application.StartupPath+"\\KeysFilePath", KeysChooseDialog.FileName);
                     KeysBox.Text = KeysChooseDialog.FileName;
                 }
-            }
-            else
-            {
-                //string KeysPath = "";
-                string KeysPath = File.ReadAllText(Application.StartupPath + "\\KeysFilePath");
-                KeysBox.Text = KeysPath;
             }
         }
 
@@ -317,10 +322,56 @@ namespace RussellNX
 
             if (KeysChooseDialog.ShowDialog() == DialogResult.OK)
             {
-                File.Delete(Application.StartupPath + "\\KeysFilePath");
-                File.WriteAllText(Application.StartupPath + "\\KeysFilePath", KeysChooseDialog.FileName);
                 KeysBox.Text = KeysChooseDialog.FileName;
             }
+
+            KeysChooseDialog.Dispose();
+        }
+
+        private void LoadSettings()
+        {
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile(Application.StartupPath + "\\RussellNX.ini");
+            ProjectPathBox.Text = data["Main"]["AppYYPPath"];
+            TitleIDBox.Text = data["Main"]["AppID"];
+            GameNameBox.Text = data["Main"]["AppName"];
+            AuthorBox.Text = data["Main"]["AppAuthor"];
+            VersionBox.Text = data["Main"]["AppVersion"];
+            KeysBox.Text = data["Main"]["AppKeysPath"];
+            GameIconPath = data["Main"]["AppIconPath"];
+        }
+        private void SaveSettings()
+        {
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile(Application.StartupPath + "\\RussellNX.ini");
+            data["Main"]["AppYYPPath"] = ProjectPathBox.Text;
+            data["Main"]["AppID"] = TitleIDBox.Text;
+            data["Main"]["AppName"] = GameNameBox.Text;
+            data["Main"]["AppAuthor"] = AuthorBox.Text;
+            data["Main"]["AppVersion"] = VersionBox.Text;
+            data["Main"]["AppKeysPath"] = KeysBox.Text;
+            data["Main"]["AppIconPath"] = GameIconPath;
+            data["AppVersion"]["RNXVer"] = RNXVersionString;
+            parser.WriteFile(Application.StartupPath + "\\RussellNX.ini", data);
+        }
+        private void DefaultSettings()
+        {
+            string fname = Application.StartupPath + "\\RussellNX.ini";
+            File.WriteAllText(fname, "");
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile(fname);
+            data.Sections.AddSection("Main");
+            data.Sections.GetSectionData("Main").Comments.Add("This is a RussellNX configuration file, edit with caution.");
+            parser.WriteFile(fname, data);
+            prnt("Default RussellNX.ini was made.");
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Save settings
+            prnt("Saving...");
+            SaveSettings();
+
         }
     }
 }

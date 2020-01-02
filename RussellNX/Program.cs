@@ -30,7 +30,7 @@ namespace RussellNX
         <Publisher>INSERT_DEVELOPER_OF_THE_APP_HERE</Publisher>
     </Title>
     <Isbn/>
-    <StartupUserAccount>Required</StartupUserAccount>
+    <StartupUserAccount>None</StartupUserAccount>
     <UserAccountSwitchLock>Disable</UserAccountSwitchLock>
     <ParentalControl>None</ParentalControl>
     <SupportedLanguage>AmericanEnglish</SupportedLanguage>

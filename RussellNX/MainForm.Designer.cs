@@ -227,7 +227,7 @@
             this.RNXVersionLabel.Name = "RNXVersionLabel";
             this.RNXVersionLabel.Size = new System.Drawing.Size(122, 13);
             this.RNXVersionLabel.TabIndex = 20;
-            this.RNXVersionLabel.Text = "RusselNX Version: 1.0.0";
+            this.RNXVersionLabel.Text = "RusselNX Version: 0.0.0";
             // 
             // LogBox
             // 
@@ -287,6 +287,7 @@
             this.Controls.Add(this.ProjectPathBox);
             this.Name = "MainForm";
             this.Text = "RussellNX: Main form.";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.IconPicBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
